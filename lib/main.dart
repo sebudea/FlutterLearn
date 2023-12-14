@@ -12,16 +12,30 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Esto es un Appbar"),
+          actions: <Widget>[
+            IconButton(
+              onPressed: _add,
+              icon: Icon(Icons.add),
+            ),
+            IconButton(
+              onPressed: _add,
+              icon: Icon(Icons.remove),
+            ),
+          ],
+          elevation: 10,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          leading: IconButton(
+            onPressed: _add,
+            icon: Icon(Icons.arrow_back),
+          ),
         ),
         body: Center(),
-        backgroundColor: Colors.yellow,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add),
-        ),
-        drawer: Drawer(),
-        endDrawer: Drawer(),
       ),
     );
+  }
+
+  void _add() {
+    print("hola");
   }
 }
