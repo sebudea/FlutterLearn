@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  List<String> names = [
+    "Juan",
+    "Wiliam",
+    "Samanta",
+    "Juan",
+    "Wiliam",
+    "Samanta",
+    "Juan",
+    "Guille",
+    "Samanta",
+    "Juan",
+    "Wiliam",
+    "Samanta",
+    "Juan",
+    "Wiliam",
+    "Samanta"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +31,18 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Esto es un Appbar"),
         ),
-        body: Center(
-          child: Container(
-            color: Color.fromRGBO(29, 209, 254, 1),
-            height: 300,
-            width: 300,
-          ),
+        body: ListView.builder(
+          itemCount: names.length,
+          itemBuilder: (BuildContext context, int index) {
+            final name = names[index];
+            return ListTile(
+              title: Text(name),
+              leading: Icon(Icons.person),
+              onTap: () {
+                print(name);
+              },
+            );
+          },
         ),
       ),
     );
