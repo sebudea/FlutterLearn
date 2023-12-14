@@ -1,48 +1,21 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  List<String> names = [
-    "Juan",
-    "Wiliam",
-    "Samanta",
-    "Juan",
-    "Wiliam",
-    "Samanta",
-    "Juan",
-    "Guille",
-    "Samanta",
-    "Juan",
-    "Wiliam",
-    "Samanta",
-    "Juan",
-    "Wiliam",
-    "Samanta"
-  ];
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: "GloriaHallelujah"),
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Esto es un Appbar"),
+          title: const Text('Material App Bar'),
         ),
-        body: ListView.builder(
-          itemCount: names.length,
-          itemBuilder: (BuildContext context, int index) {
-            final name = names[index];
-            return ListTile(
-              title: Text(name),
-              leading: Icon(Icons.person),
-              onTap: () {
-                print(name);
-              },
-            );
-          },
+        body: const Center(
+          child: Text('Hello World'),
         ),
       ),
     );
