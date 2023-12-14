@@ -11,31 +11,25 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Esto es un Appbar"),
-          actions: <Widget>[
-            IconButton(
-              onPressed: _add,
-              icon: Icon(Icons.add),
-            ),
-            IconButton(
-              onPressed: _add,
-              icon: Icon(Icons.remove),
-            ),
-          ],
-          elevation: 10,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          leading: IconButton(
-            onPressed: _add,
-            icon: Icon(Icons.arrow_back),
+          title: const Text("Esto es un Appbar"),
+        ),
+        body: SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                color: Colors.orange,
+                height: 100,
+                width: 100,
+              ),
+              Text("Hola, estoy en un container"),
+              Text("Hola, estoy en un container"),
+              Text("Hola, estoy en un container"),
+            ],
           ),
         ),
-        body: Center(),
       ),
     );
-  }
-
-  void _add() {
-    print("hola");
   }
 }
