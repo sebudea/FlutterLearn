@@ -13,19 +13,53 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Esto es un Appbar"),
         ),
-        body: SizedBox(
-          width: double.infinity,
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                color: Colors.orange,
-                height: 100,
-                width: 100,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text("Activar sonido"),
+                  Switch(
+                    value: true,
+                    onChanged: (value) {},
+                  )
+                ],
               ),
-              Text("Hola, estoy en un container"),
-              Text("Hola, estoy en un container"),
-              Text("Hola, estoy en un container"),
+              Divider(),
+              Row(
+                children: <Widget>[
+                  Expanded(child: Text("Activar camara")),
+                  Switch(
+                    value: true,
+                    onChanged: (value) {},
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    height: 50,
+                    width: 50,
+                    color: Colors.pink,
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 100,
+                      width: 50,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    color: Colors.green,
+                  ),
+                ],
+              )
             ],
           ),
         ),
