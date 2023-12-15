@@ -13,7 +13,13 @@ class Secondpage extends StatelessWidget {
         title: Text("Segunda pantalla"),
       ),
       body: Center(
-        child: Text(persona.name),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(persona.name),
+            Text(persona.lastName),
+          ],
+        ),
       ),
     );
   }
