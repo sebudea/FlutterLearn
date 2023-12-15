@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -24,65 +22,34 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String name = "Marvin";
-  double progressValue = 0.0;
-  bool switchValue = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("GestureDetector"),
+      ),
       body: Center(
         child: Column(
-          children: [
-            Text(
-              name,
-              style: TextStyle(fontSize: 30),
-            ),
-            LinearProgressIndicator(
-              value: progressValue,
-            ),
-            Switch(
-              value: switchValue,
-              onChanged: (value) {
-                setState(() {
-                  switchValue = value;
-                });
-              },
+          children: <Widget>[
+            GestureDetector(
+              onTap: _onTap,
+              onLongPress: _onLongPress,
+              child: Text(
+                "Hola",
+                style: TextStyle(fontSize: 30),
+              ),
             )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.refresh),
-        onPressed: changeName,
-      ),
     );
   }
 
-  void changeName() {
-    setState(() {
-      if (name == "Marvin") {
-        name = "Osiel";
-      } else {
-        name = "Marvin";
-      }
-      progressValue += 0.01;
-    });
+  void _onTap() {
+    print("Hola");
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Timer.periodic(Duration(seconds: 1), (value) {
-      changeName();
-    });
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
+  void _onLongPress() {
+    print("Se ha mantenido el click");
   }
 }
